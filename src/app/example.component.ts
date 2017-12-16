@@ -23,6 +23,12 @@ export class ExampleDisplay {
 
 }
 
+const extensionToLanguage = {
+  ts: Prism.languages.javascript,
+  css: Prism.languages.css,
+  html: Prism.languages.html
+};
+
 
 @Component({
   selector: "ng-by-ex-example",
@@ -51,10 +57,11 @@ export class ExampleComponent implements AfterViewInit {
   private fetchSourceFile(fileName: string): void {
     this.httpClient.get(fileName, {responseType: "text"})
       .subscribe(resp => {
+        const extension =  fileName.substring(fileName.lastIndexOf(".") + 1);
         this.sourceFiles.push({
           relPath: fileName,
           fileName: fileName.substring(fileName.lastIndexOf("/") + 1),
-          highlightedText: Prism.highlight(resp, Prism.languages.javascript)
+          highlightedText: Prism.highlight(resp, extensionToLanguage[extension])
         });
       });
   }

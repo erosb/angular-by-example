@@ -1,6 +1,7 @@
 import {HelloWorldComponent} from "./hello-world/hello-world.component";
 import {EventHandlingComponent} from "./event-handling/event-handling.component";
 import {Type} from "@angular/core";
+import {TemplateWithHtmlComponent} from "./separate-template-file/template-with-html.component";
 
 export interface ExampleDefinition {
 
@@ -19,5 +20,10 @@ export const exampleList: ExampleDefinition[] = [
     title: "Event handling",
     files: ["app/event-handling/event-handling.component.ts"],
     component: EventHandlingComponent
+  },
+  {
+    title: "Separate template file",
+    files: ["app/separate-template-file/template-with-html.component.ts", "app/separate-template-file/template-with-html.html", "app/separate-template-file/template-with-html.css"],
+    component: TemplateWithHtmlComponent
   }
 ];
