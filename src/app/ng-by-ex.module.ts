@@ -1,9 +1,9 @@
-import {NgModule, Type} from '@angular/core';
+import {NgModule, Type} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {RootComponent} from "./root.component";
 import {ExampleComponent, ExampleDisplay} from "./example.component";
 import exampleList from "./example-list";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 
 const declarations = [
   RootComponent,
@@ -26,7 +26,7 @@ const entryComponents = [];
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations,
   entryComponents,
