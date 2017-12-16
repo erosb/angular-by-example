@@ -15,11 +15,7 @@ export class ExampleDisplay {
 
 @Component({
   selector: "ng-by-ex-example",
-  template: `<h2>{{example.title}}</h2>
-  <ng-template running-example></ng-template>
-  <code><pre [innerHTML]="source"></pre></code>
-  <hr>
-  `
+  templateUrl: "./example.component.html"
 })
 export class ExampleComponent implements AfterViewInit {
 

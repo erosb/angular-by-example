@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>{{example.title}}</mat-card-title>
+    <mat-card-content>
+        <mat-tab-group>
+            <mat-tab label="Demo">
+                <h1>Demo</h1>
+                <p>
+                <ng-template running-example></ng-template>
+                </p>
+            </mat-tab>
+            <mat-tab label="component.ts">
+                <h2>component.ts</h2>
+                <code><pre [innerHTML]="source"></pre></code>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

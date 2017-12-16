@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-import exampleList from "./example-list";
+import { exampleList } from "./example-list";
 
 @Component({
   selector : "ng-by-ex",

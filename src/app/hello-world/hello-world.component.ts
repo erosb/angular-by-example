@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, NgModule} from "@angular/core";
 
 @Component({
   selector: "hello-world",
@@ -9,3 +9,7 @@ export class HelloWorldComponent {
   title = "Hello World";
 
 }
+
+
+@NgModule({ declarations: [HelloWorldComponent]})
+export class HelloWorldModule {}

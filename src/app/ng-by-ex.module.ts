@@ -2,8 +2,10 @@ import {NgModule, Type} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {RootComponent} from "./root.component";
 import {ExampleComponent, ExampleDisplay} from "./example.component";
-import exampleList from "./example-list";
+import { exampleList } from "./example-list";
 import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatTabsModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const declarations = [
   RootComponent,
@@ -27,6 +29,11 @@ const entryComponents = [];
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule
   ],
   declarations,
   entryComponents,
