@@ -34,24 +34,41 @@ const extensionToLanguage = {
   selector: "ng-by-ex-example",
   templateUrl: "./example.component.html",
   styles: [`
-    .row-cnt {
-        display: flex;
-        justify-content: center;
-    }
-    .row-cnt > div {
-    }
-    mat-tab-group {
-        min-width: 800px;
-    }
-    .cnt-demo {
-        padding: 6em;
-    }
-    .cnt-explanation {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-width: 30%;
-    }
+      .row-cnt {
+          display: flex;
+          justify-content: center;
+      }
+
+      .row-cnt > div {
+      }
+
+      .cnt-example-card {
+          padding-bottom: 1.8em;
+      }
+
+      .cnt-example-card mat-card {
+          background-color: #dec888
+      }
+
+      mat-tab-group {
+          min-width: 800px;
+      }
+
+      .cnt-demo {
+          padding-right: 6em;
+          padding-top: 1em;
+          background-color: #dec999
+      }
+
+      .cnt-explanation {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-width: 30%;
+          font-family: Kalam, Pangolin;
+          font-size: 120%;
+          padding-left: 5em;
+      }
   `]
 })
 export class ExampleComponent implements AfterViewInit {

@@ -26,6 +26,9 @@ export const exampleList: ExampleDefinition[] = [
   {
     title: "Separate template file",
     files: ["app/separate-template-file/template-with-html.component.ts", "app/separate-template-file/template-with-html.html", "app/separate-template-file/template-with-html.css"],
-    component: TemplateWithHtmlComponent
+    component: TemplateWithHtmlComponent,
+    explanation: `The template path should be relative to the location of the component. By convention its filename is the same as the name of the component file, just not .ts but .html
+    
+    CSS files should be listed in the styleUrls array.`
   }
 ];

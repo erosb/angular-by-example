@@ -4,7 +4,7 @@ import {Component, NgModule} from "@angular/core";
   selector: "event-handling",
   template: `
   <div>{{message}}</div>
-  <a (click)="buttonClicked()">Click me!</a>
+  <button (click)="buttonClicked()">Click me!</button>
   `
 })
 export class EventHandlingComponent {
