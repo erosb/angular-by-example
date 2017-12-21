@@ -6,6 +6,7 @@ import {TemplateWithHtmlComponent} from "./separate-template-file/template-with-
 export interface ExampleDefinition {
 
   title: string,
+  explanation?: string
   files: string[],
   component: Type<any>
 }
@@ -18,6 +19,7 @@ export const exampleList: ExampleDefinition[] = [
   },
   {
     title: "Event handling",
+    explanation: `Event handlers are set up with (braced attributes)`,
     files: ["app/event-handling/event-handling.component.ts"],
     component: EventHandlingComponent
   },

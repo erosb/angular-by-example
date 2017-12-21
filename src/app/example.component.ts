@@ -32,7 +32,27 @@ const extensionToLanguage = {
 
 @Component({
   selector: "ng-by-ex-example",
-  templateUrl: "./example.component.html"
+  templateUrl: "./example.component.html",
+  styles: [`
+    .row-cnt {
+        display: flex;
+        justify-content: center;
+    }
+    .row-cnt > div {
+    }
+    mat-tab-group {
+        min-width: 800px;
+    }
+    .cnt-demo {
+        padding: 6em;
+    }
+    .cnt-explanation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 30%;
+    }
+  `]
 })
 export class ExampleComponent implements AfterViewInit {
 
