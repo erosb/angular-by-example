@@ -59,17 +59,18 @@ const extensionToLanguage = {
           padding-right: 6em;
           padding-top: 1em;
           background-color: #dec999;
-          min-width: 10%;
+          min-width: 20%;
+          line-height: 180%;
       }
 
       .cnt-explanation {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          min-width: 25%;
+          /*min-width: 25%;*/
           font-family: Kalam, Pangolin;
           font-size: 120%;
-          padding-left: 5em;
+          padding: 3em;
           border: 3px green dashed;
       }
   `]
