@@ -6,6 +6,7 @@ import { exampleList } from "./example-list";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule, MatCardModule, MatCheckboxModule, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterModule, Routes} from "@angular/router";
 
 const declarations = [
   RootComponent,
@@ -24,11 +25,15 @@ const entryComponents = [];
 
 })();
 
+const routes: Routes = [
+  { path: "ex/:id", component: ExampleComponent }
+];
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,

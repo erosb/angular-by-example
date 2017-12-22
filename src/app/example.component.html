@@ -1,6 +1,6 @@
-<div class="cnt-example-card">
+<div class="cnt-example-card" *ngIf="example != null; else notYetLoaded">
     <mat-card>
-        <mat-card-title>{{example.title}}</mat-card-title>
+        <mat-card-title routerLink="/ex/{{example.id}}">{{example.title}}</mat-card-title>
         <mat-card-content>
             <div class="row-cnt">
                 <div class="cnt-demo">
@@ -24,3 +24,5 @@
         </mat-card-content>
     </mat-card>
 </div>
+
+<ng-template #notYetLoaded>Not loaded</ng-template>

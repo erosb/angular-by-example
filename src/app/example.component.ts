@@ -1,8 +1,10 @@
 import {AfterViewInit, Component, ComponentFactoryResolver, Directive, Input, ViewChild, ViewContainerRef} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import * as Prism from "prismjs";
-import {ExampleDefinition} from "./example-list";
+import {ExampleDefinition, exampleList} from "./example-list";
 import * as md from "markdown-it";
+import {Location} from "@angular/common";
+import {ActivatedRoute} from "@angular/router";
 
 interface SourceFile {
 
@@ -35,6 +37,12 @@ const extensionToLanguage = {
   selector: "ng-by-ex-example",
   templateUrl: "./example.component.html",
   styles: [`
+      mat-card-title {
+          cursor: pointer
+      }
+      mat-card-title:hover {
+          text-decoration: underline;
+      }
       .row-cnt {
           display: flex;
           justify-content: center;
@@ -50,7 +58,7 @@ const extensionToLanguage = {
       .cnt-example-card mat-card {
           background-color: #dec888;
       }
-
+      
       mat-tab-group {
           min-width: 40%;
       }
@@ -88,13 +96,29 @@ export class ExampleComponent implements AfterViewInit {
   public sourceFiles: SourceFile[] = [];
 
   public ngAfterViewInit(): void {
+    if (this.example == null) {
+      const exampleId = this.route.snapshot.paramMap.get("id");
+      for (let i in exampleList) {
+        const exDef = exampleList[i];
+        if (exDef.id === exampleId) {
+          this.example = exDef;
+          break;
+        }
+      }
+    }
+    this.loadExampleContents();
+  }
+
+  private loadExampleContents() {
     setTimeout(() => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.example.component);
+      setTimeout(()=> {
       const viewContainerRef = this.exampleDisplay.viewContainerRef;
       viewContainerRef.clear();
       const componentRef = viewContainerRef.createComponent(componentFactory);
 
       this.explanation = md({}).render(this.example.explanation);
+      })
     });
     this.example.files.forEach(this.fetchSourceFile.bind(this));
   }
@@ -111,7 +135,9 @@ export class ExampleComponent implements AfterViewInit {
       });
   }
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private httpClient: HttpClient) {
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+              private httpClient: HttpClient,
+              private route: ActivatedRoute) {
   }
 
 }
