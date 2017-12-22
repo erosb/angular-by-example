@@ -1,6 +1,6 @@
 import {NgModule, Type} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {RootComponent} from "./root.component";
+import {AllExampleComponent, RootComponent} from "./root.component";
 import {ExampleComponent, ExampleDisplay} from "./example.component";
 import { exampleList } from "./example-list";
 import {HttpClientModule} from "@angular/common/http";
@@ -10,6 +10,7 @@ import {RouterModule, Routes} from "@angular/router";
 
 const declarations = [
   RootComponent,
+  AllExampleComponent,
   ExampleComponent,
   ExampleDisplay
 ];
@@ -26,6 +27,7 @@ const entryComponents = [];
 })();
 
 const routes: Routes = [
+  { path: "", component: AllExampleComponent },
   { path: "ex/:id", component: ExampleComponent }
 ];
 

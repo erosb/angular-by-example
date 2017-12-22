@@ -8,6 +8,14 @@ import { exampleList } from "./example-list";
 })
 export class RootComponent {
 
+}
+
+@Component({
+  selector: "ngbex-all-examples",
+  template: `<ng-by-ex-example *ngFor="let example of examples" [example]="example"></ng-by-ex-example>`
+})
+export class AllExampleComponent {
+
   examples = exampleList;
 
 }
