@@ -36,7 +36,7 @@ experience with it yet.
 It is \`buttonClicked()\` instead of declaratively \`buttonClicked\`.
     
 The event object can be passed along to the method using method(event).`
-  }/*,
+  },
   {
     id: "separate-template-file",
     title: "Separate template file",
@@ -51,5 +51,5 @@ CSS files should be listed in the styleUrls array.`
     title: "Control structures in templates",
     files: ["template-control-structures.component.ts"],
     component: TemplateControlStructuresComponent
-  }*/
+  }
 ];
