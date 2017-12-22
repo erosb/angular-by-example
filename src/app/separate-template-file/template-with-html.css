@@ -1,0 +1,3 @@
+.cnt-example li + li {
+    color: blue
+}
