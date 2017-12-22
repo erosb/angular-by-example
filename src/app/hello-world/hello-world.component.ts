@@ -2,11 +2,23 @@ import {Component, NgModule} from "@angular/core";
 
 @Component({
   selector: "hello-world",
-  template: "Ng Component says {{title}}"
+  template: `There are multiple ways in angular to print text
+  <ul>
+      <li>{{firstLine}}</li>
+      <li [innerText]="secondLine"></li>
+      <li [innerHTML]="thirdLine"></li>
+  </ul>
+
+  `
 })
 export class HelloWorldComponent {
 
-  title = "Hello World";
+  firstLine = "The simplest is using double curly braces";
+
+  secondLine = "You can also output using the [innerText] attribute";
+
+  thirdLine = "the [innerHTML] value <b>won't be escaped</b>"
+
 
 }
 
