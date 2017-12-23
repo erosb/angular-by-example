@@ -6,6 +6,8 @@ import {TemplateControlStructuresComponent} from "./ngif/ngif.component";
 import {NgForComponent} from "./ngfor/ngfor.component";
 import {CssComponent} from "./css/css.component";
 import {CssSubComponent} from "./css/css-sub.component";
+import {ParentComponent} from "./component-interaction/parent.component";
+import {ChildComponent} from "./component-interaction/child.component";
 
 export interface ExampleDefinition {
   id: string,
@@ -85,5 +87,25 @@ with \`ng-container\` element (which won't appear in the DOM, only its children)
  * CSS can be put into a separate file, using the \`styleUrls\` component attribute, which should be an array containing css file paths by reference
  * \`styleUrls\` also supports CSS preprocessors (like SASS and LESS), you just have to name the file with a different extension (\`.sass\` in this example).   
     `
+  },
+  {
+    id: "component-interaction",
+    title: "Interaction between components",
+    files: ["parent.component.ts", "child.component.ts"],
+    component: ParentComponent,
+    components: [ParentComponent, ChildComponent],
+    explanation: `Angular components behave similarly to usual HTML elements: parent components can pass parameters to their children
+in the form of attributes, and they can also listen to custom events emitted by the children.
+
+Parameters can be passed by
+ * decorating a public field with \`@Input()\` in the child component
+ * in the parent template binding the attribute \`[fieldName]\` to the parameter value 
+ 
+_Note: the attribute name and the field name can be different if you use the syntax \`@Input("attributeName")\` for decorating the field_
+
+Components can signal events to their parents by
+ * having an \`EventEmitter\` type field decorated with \`@Output()\`. The generic type parameter of \`EventEmitter\` is the type of the event argument, handled by the parent.
+ * in the parent template, listening to the event by setting an event handler method in the parent component using the \`(fieldName)="eventHandler($event)"\` attribute 
+`
   }
 ];
