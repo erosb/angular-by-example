@@ -21,8 +21,17 @@ const entryComponents = [];
 
   for (const i in exampleList) {
     const exampleDef = exampleList[i];
-    declarations.push(exampleDef.component as Type<any>);
-    entryComponents.push(exampleDef.component);
+    if (exampleDef.component) {
+      declarations.push(exampleDef.component as Type<any>);
+      entryComponents.push(exampleDef.component);
+    }
+    if (exampleDef.components) {
+      for (let compType of exampleDef.components) {
+        console.log(compType)
+        declarations.push(compType);
+        entryComponents.push(compType);
+      }
+    }
   }
 
 })();

@@ -4,13 +4,16 @@ import {Type} from "@angular/core";
 import {TemplateWithHtmlComponent} from "./separate-template-file/template-with-html.component";
 import {TemplateControlStructuresComponent} from "./ngif/ngif.component";
 import {NgForComponent} from "./ngfor/ngfor.component";
+import {CssComponent} from "./css/css.component";
+import {CssSubComponent} from "./css/css-sub.component";
 
 export interface ExampleDefinition {
   id: string,
   title: string,
   explanation?: string
   files: string[],
-  component: Type<any>
+  component?: Type<any>,
+  components?: Type<any>[]
 }
 
 export const exampleList: ExampleDefinition[] = [
@@ -66,5 +69,21 @@ The else clause (if any) is not really a clause, but a reference to a local HTML
     
 It displays the element the \`*ngFor\` is bound to for each array items. If you don't want to have any specific wrapper element then you can wrap
 with \`ng-container\` element (which won't appear in the DOM, only its children)`
+  },
+  {
+    id: "css",
+    title: "Working with CSS",
+    files: ["css.component.ts", "../../styles.css", "css-sub.component.ts", "css-sub.component.css", "css-sub.component.sass"],
+    component: CssComponent,
+    components: [CssComponent, CssSubComponent],
+    explanation: `There are several ways of adding css to an Angular component:
+ * the \`src/styles.css\` can contain global CSS declarations which apply to the entire page
+   - they can be CSS files coming from node depencencies. Dependency directories should be references using the \`~dependency-name\` syntax instead of \`node_modules/dependency-name\`
+   - they can be external css files referenced by absolute URL
+   - they can be CSS filed referenced by path, relative to \`src/\`
+ * the components can have inline CSS styling, using the \`styles\`, but these stylings don't apply to sub-components.
+ * CSS can be put into a separate file, using the \`styleUrls\` component attribute, which should be an array containing css file paths by reference
+ * \`styleUrls\` also supports CSS preprocessors (like SASS and LESS), you just have to name the file with a different extension (\`.sass\` in this example).   
+    `
   }
 ];
