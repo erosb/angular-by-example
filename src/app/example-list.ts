@@ -3,6 +3,7 @@ import {EventHandlingComponent} from "./event-handling/event-handling.component"
 import {Type} from "@angular/core";
 import {TemplateWithHtmlComponent} from "./separate-template-file/template-with-html.component";
 import {TemplateControlStructuresComponent} from "./ngif/ngif.component";
+import {NgForComponent} from "./ngfor/ngfor.component";
 
 export interface ExampleDefinition {
   id: string,
@@ -48,12 +49,22 @@ CSS files should be listed in the styleUrls array.`
   },
   {
     id: "ngif",
-    title: "Control structures in templates",
+    title: "Control structures in templates: *ngIf",
     files: ["ngif.component.ts", "ngif.component.html"],
     component: TemplateControlStructuresComponent,
     explanation: `Conditional template fragments can be defined using the \`*ngIf\` structural directive. The predicate can be any expression,
 and can use any public members of the component class.
 
 The else clause (if any) is not really a clause, but a reference to a local HTML element.`
+  },
+  {
+    id: "ngfor",
+    title: "Control structures in templates: *ngFor",
+    files: ["ngfor.component.ts"],
+    component: NgForComponent,
+    explanation: `The \`*ngFor\` structural directive can be used to loop through arrays or objects. The syntax is \`let\` itemVarName \`of \` array.
+    
+It displays the element the \`*ngFor\` is bound to for each array items. If you don't want to have any specific wrapper element then you can wrap
+with \`ng-container\` element (which won't appear in the DOM, only its children)`
   }
 ];

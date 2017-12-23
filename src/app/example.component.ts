@@ -36,52 +36,7 @@ const extensionToLanguage = {
 @Component({
   selector: "ngbex-example",
   templateUrl: "./example.component.html",
-  styles: [`
-      mat-card-title {
-          cursor: pointer
-      }
-      mat-card-title:hover {
-          text-decoration: underline;
-      }
-      .row-cnt {
-          display: flex;
-          justify-content: center;
-      }
-
-      .row-cnt > div {
-      }
-
-      .cnt-example-card {
-          padding-bottom: 1.8em;
-      }
-
-      .cnt-example-card mat-card {
-          background-color: #dec888;
-      }
-
-      mat-tab-group {
-          min-width: 40%;
-      }
-
-      .cnt-demo {
-          padding-right: 6em;
-          padding-top: 1em;
-          background-color: #dec999;
-          min-width: 20%;
-          line-height: 180%;
-      }
-
-      .cnt-explanation {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          /*min-width: 25%;*/
-          font-family: Kalam, Pangolin;
-          font-size: 120%;
-          padding: 3em;
-          border: 3px green dashed;
-      }
-  `]
+  styleUrls: ["./example.component.css"]
 })
 export class ExampleComponent implements AfterViewInit {
 
@@ -113,11 +68,11 @@ export class ExampleComponent implements AfterViewInit {
     setTimeout(() => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.example.component);
       setTimeout(() => {
+        this.explanation = md({}).render(this.example.explanation);
         const viewContainerRef = this.exampleDisplay.viewContainerRef;
         viewContainerRef.clear();
-        const componentRef = viewContainerRef.createComponent(componentFactory);
 
-        this.explanation = md({}).render(this.example.explanation);
+        const componentRef = viewContainerRef.createComponent(componentFactory);
       });
     });
     this.example.files.forEach(this.fetchSourceFile.bind(this));
