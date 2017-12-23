@@ -1,7 +1,7 @@
 import {Component, NgModule} from "@angular/core";
 
 @Component({
-  selector: "hello-world",
+  selector: "ngbex-hello-world",
   template: `There are multiple ways in angular to print text
   <ul>
       <li>{{firstLine}}</li>
@@ -17,11 +17,12 @@ export class HelloWorldComponent {
 
   secondLine = "You can also output using the [innerText] attribute";
 
-  thirdLine = "the [innerHTML] value <b>won't be escaped</b>"
+  thirdLine = "the [innerHTML] value <b>won't be escaped</b>";
 
 
 }
 
 
+// --hide--
 @NgModule({ declarations: [HelloWorldComponent]})
 export class HelloWorldModule {}

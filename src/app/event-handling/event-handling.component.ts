@@ -1,7 +1,7 @@
 import {Component, NgModule} from "@angular/core";
 
 @Component({
-  selector: "event-handling",
+  selector: "ngbex-event-handling",
   template: `
   <div>{{message}}</div>
   <button (click)="buttonClicked()">Click me!</button>

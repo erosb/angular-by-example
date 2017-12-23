@@ -3,7 +3,7 @@
 import {Component, NgModule} from "@angular/core";
 
 @Component({
-  selector: "template-control-structures",
+  selector: "ngbex-template-control-structures",
   templateUrl: "./template-control-structures.component.html"
 })
 export class TemplateControlStructuresComponent {

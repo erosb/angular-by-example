@@ -3,7 +3,7 @@ import {Component} from "@angular/core";
 import { exampleList } from "./example-list";
 
 @Component({
-  selector : "ng-by-ex",
+  selector : "ngbex-root",
   templateUrl: "./root.component.html"
 })
 export class RootComponent {
@@ -12,7 +12,8 @@ export class RootComponent {
 
 @Component({
   selector: "ngbex-all-examples",
-  template: `<ng-by-ex-example *ngFor="let example of examples" [example]="example"></ng-by-ex-example>`
+  template: `
+      <ngbex-example *ngFor="let example of examples" [example]="example"></ngbex-example>`
 })
 export class AllExampleComponent {
 

@@ -1,7 +1,7 @@
 import {NgModule, Type} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {AllExampleComponent, RootComponent} from "./root.component";
-import {ExampleComponent, ExampleDisplay} from "./example.component";
+import {ExampleComponent, ExampleDisplayDirective} from "./example.component";
 import { exampleList } from "./example-list";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule, MatCardModule, MatCheckboxModule, MatTabsModule} from "@angular/material";
@@ -12,13 +12,13 @@ const declarations = [
   RootComponent,
   AllExampleComponent,
   ExampleComponent,
-  ExampleDisplay
+  ExampleDisplayDirective
 ];
 const entryComponents = [];
 
 (function() {
 
-  for (let i in exampleList) {
+  for (const i in exampleList) {
     const exampleDef = exampleList[i];
     declarations.push(exampleDef.component as Type<any>);
     entryComponents.push(exampleDef.component);

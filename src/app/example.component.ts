@@ -12,14 +12,14 @@ interface SourceFile {
 
   relPath: string;
 
-  highlightedText: string
+  highlightedText: string;
 
 }
 
 @Directive({
-  selector: "[running-example]"
+  selector: "[ngbexRunningExample]"
 })
-export class ExampleDisplay {
+export class ExampleDisplayDirective {
 
   constructor(public viewContainerRef: ViewContainerRef) {
   }
@@ -34,7 +34,7 @@ const extensionToLanguage = {
 
 
 @Component({
-  selector: "ng-by-ex-example",
+  selector: "ngbex-example",
   templateUrl: "./example.component.html",
   styles: [`
       mat-card-title {
@@ -58,7 +58,7 @@ const extensionToLanguage = {
       .cnt-example-card mat-card {
           background-color: #dec888;
       }
-      
+
       mat-tab-group {
           min-width: 40%;
       }
@@ -89,7 +89,7 @@ export class ExampleComponent implements AfterViewInit {
 
   explanation: string;
 
-  @ViewChild(ExampleDisplay) exampleDisplay;
+  @ViewChild(ExampleDisplayDirective) exampleDisplay;
 
   public source: string;
 
@@ -98,7 +98,7 @@ export class ExampleComponent implements AfterViewInit {
   public ngAfterViewInit(): void {
     if (this.example == null) {
       const exampleId = this.route.snapshot.paramMap.get("id");
-      for (let i in exampleList) {
+      for (const i in exampleList) {
         const exDef = exampleList[i];
         if (exDef.id === exampleId) {
           this.example = exDef;
@@ -112,13 +112,13 @@ export class ExampleComponent implements AfterViewInit {
   private loadExampleContents() {
     setTimeout(() => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.example.component);
-      setTimeout(()=> {
-      const viewContainerRef = this.exampleDisplay.viewContainerRef;
-      viewContainerRef.clear();
-      const componentRef = viewContainerRef.createComponent(componentFactory);
+      setTimeout(() => {
+        const viewContainerRef = this.exampleDisplay.viewContainerRef;
+        viewContainerRef.clear();
+        const componentRef = viewContainerRef.createComponent(componentFactory);
 
-      this.explanation = md({}).render(this.example.explanation);
-      })
+        this.explanation = md({}).render(this.example.explanation);
+      });
     });
     this.example.files.forEach(this.fetchSourceFile.bind(this));
   }
@@ -127,12 +127,26 @@ export class ExampleComponent implements AfterViewInit {
     this.httpClient.get("/app/" + this.example.id + "/" + fileName, {responseType: "text"})
       .subscribe(resp => {
         const extension =  fileName.substring(fileName.lastIndexOf(".") + 1);
+        const displayableSource = this.trimHiddenPart(resp);
         this.sourceFiles.push({
           relPath: fileName,
           fileName: fileName.substring(fileName.lastIndexOf("/") + 1),
-          highlightedText: Prism.highlight(resp, extensionToLanguage[extension])
+          highlightedText: Prism.highlight(displayableSource, extensionToLanguage[extension])
         });
       });
+  }
+
+  private trimHiddenPart(completeSourceContent: string) {
+    const lines = completeSourceContent.split("\n");
+    let rval = "";
+    for (const i in lines) {
+      const line = lines[i];
+      if (line.match(/^\/\/\s*--\s*hide\s*--\s*$/) !== null) {
+        break;
+      }
+      rval += line + "\n";
+    }
+    return rval;
   }
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
