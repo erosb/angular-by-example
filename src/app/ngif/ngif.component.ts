@@ -4,11 +4,15 @@ import {Component, NgModule} from "@angular/core";
 
 @Component({
   selector: "ngbex-template-control-structures",
-  templateUrl: "./template-control-structures.component.html"
+  templateUrl: "./ngif.component.html"
 })
 export class TemplateControlStructuresComponent {
 
-  showMessage = true;
+  public showMessage = true;
+
+  public hideMessage(): void {
+    this.showMessage = false;
+  }
 
 }
 

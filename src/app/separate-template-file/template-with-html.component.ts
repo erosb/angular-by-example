@@ -6,7 +6,8 @@ import {Component, NgModule} from "@angular/core";
   templateUrl: "./template-with-html.html",
   styleUrls: ["./template-with-html.css"]
 })
-export class TemplateWithHtmlComponent {}
+export class TemplateWithHtmlComponent {
+}
 
 
 // --hide--

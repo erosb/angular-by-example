@@ -1,0 +1,8 @@
+<span *ngIf="showMessage; else messageIsHidden">
+    Showing a message inside a conditional
+    <button (click)="hideMessage()">Hide</button>
+</span>
+
+<ng-template #messageIsHidden>
+    Message is hidden
+</ng-template>

@@ -2,7 +2,7 @@ import {HelloWorldComponent} from "./hello-world/hello-world.component";
 import {EventHandlingComponent} from "./event-handling/event-handling.component";
 import {Type} from "@angular/core";
 import {TemplateWithHtmlComponent} from "./separate-template-file/template-with-html.component";
-import {TemplateControlStructuresComponent} from "./template-control-structures/template-control-structures.component";
+import {TemplateControlStructuresComponent} from "./ngif/ngif.component";
 
 export interface ExampleDefinition {
   id: string,
@@ -47,9 +47,13 @@ The event object can be passed along to the method using method(event).`
 CSS files should be listed in the styleUrls array.`
   },
   {
-    id: "template-control-structures",
+    id: "ngif",
     title: "Control structures in templates",
-    files: ["template-control-structures.component.ts"],
-    component: TemplateControlStructuresComponent
+    files: ["ngif.component.ts", "ngif.component.html"],
+    component: TemplateControlStructuresComponent,
+    explanation: `Conditional template fragments can be defined using the \`*ngIf\` structural directive. The predicate can be any expression,
+and can use any public members of the component class.
+
+The else clause (if any) is not really a clause, but a reference to a local HTML element.`
   }
 ];

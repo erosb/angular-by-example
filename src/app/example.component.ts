@@ -139,9 +139,10 @@ export class ExampleComponent implements AfterViewInit {
   private trimHiddenPart(completeSourceContent: string) {
     const lines = completeSourceContent.split("\n");
     let rval = "";
+    const separatorLinePattern = /^\/\/\s*--\s*hide\s*--\s*$/;
     for (const i in lines) {
       const line = lines[i];
-      if (line.match(/^\/\/\s*--\s*hide\s*--\s*$/) !== null) {
+      if (line.match(separatorLinePattern) !== null) {
         break;
       }
       rval += line + "\n";
