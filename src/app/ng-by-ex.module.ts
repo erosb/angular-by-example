@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule, MatCardModule, MatCheckboxModule, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
+import {CommonModule} from "@angular/common";
 
 const declarations = [
   RootComponent,
@@ -34,6 +35,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,

@@ -1,4 +1,5 @@
 import {Component, NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 
 export interface Person {
 
@@ -37,7 +38,7 @@ export class NgForComponent {
 
 
 // --hide--
-@NgModule({declarations : [NgForComponent]})
+@NgModule({declarations : [NgForComponent], imports: [CommonModule]})
 export class NgForModule {
 
 }

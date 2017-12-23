@@ -24,5 +24,5 @@ export class HelloWorldComponent {
 
 
 // --hide--
-@NgModule({ declarations: [HelloWorldComponent]})
+@NgModule({ declarations: [HelloWorldComponent], entryComponents: [HelloWorldComponent]})
 export class HelloWorldModule {}

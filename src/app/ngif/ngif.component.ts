@@ -1,6 +1,7 @@
 
 
 import {Component, NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: "ngbex-template-control-structures",
@@ -17,5 +18,5 @@ export class TemplateControlStructuresComponent {
 }
 
 // --hide--
-@NgModule({declarations: [TemplateControlStructuresComponent]})
+@NgModule({declarations: [TemplateControlStructuresComponent], imports: [CommonModule]})
 export class TemplateControlStructuresModule {}
