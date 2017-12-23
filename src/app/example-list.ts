@@ -85,7 +85,8 @@ with \`ng-container\` element (which won't appear in the DOM, only its children)
    - they can be CSS filed referenced by path, relative to \`src/\`
  * the components can have inline CSS styling, using the \`styles\`, but these stylings don't apply to sub-components.
  * CSS can be put into a separate file, using the \`styleUrls\` component attribute, which should be an array containing css file paths by reference
- * \`styleUrls\` also supports CSS preprocessors (like SASS and LESS), you just have to name the file with a different extension (\`.sass\` in this example).   
+ * \`styleUrls\` also supports CSS preprocessors (like SASS and LESS), you just have to name the file with a different extension (\`.sass\` in this example).
+ * if you want to have a dynamic CSS value which is bound to a component field then you have to use the \`[style.cssProperty]="componentFieldName"\` syntax in the template   
     `
   },
   {

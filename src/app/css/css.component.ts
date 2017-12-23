@@ -6,6 +6,7 @@ import {CssSubComponent} from "./css-sub.component";
   selector: "ngbex-css",
   template: `
   <div class="token string">styled by global css</div>
+  <div [style.backgroundColor]="bgcolor">dynamically styled</div>
   <div class="highlighted">styled with inline css</div>
     <ngbex-css-sub></ngbex-css-sub>
 `,
@@ -15,7 +16,11 @@ import {CssSubComponent} from "./css-sub.component";
     }
   `]
 })
-export class CssComponent {}
+export class CssComponent {
+
+  public bgcolor = "lightblue";
+
+}
 
 // --hide--
 @NgModule({declarations: [CssComponent, CssSubComponent]})
