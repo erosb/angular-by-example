@@ -17,7 +17,7 @@ mat-card-title:hover {
 }
 
 .cnt-example-card mat-card {
-    background-color: #dec888;
+    background-color: #ead9a5/*#dec888*/;
 }
 
 mat-tab-group {
@@ -27,9 +27,13 @@ mat-tab-group {
 .cnt-demo {
     padding-right: 6em;
     padding-top: 1em;
-    background-color: #dec999;
+    /*background-color: #dec999;*/
     min-width: 20%;
     line-height: 180%;
+}
+
+.cnt-demo p {
+    font-family: "Anonymous Pro", monospace;
 }
 
 .cnt-explanation {

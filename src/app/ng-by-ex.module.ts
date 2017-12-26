@@ -8,12 +8,14 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule, MatTabsModule} from "
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
+import {TitlebarComponent} from "./titlebar.component";
 
 const declarations = [
   RootComponent,
   AllExampleComponent,
   ExampleComponent,
-  ExampleDisplayDirective
+  ExampleDisplayDirective,
+  TitlebarComponent
 ];
 const entryComponents = [];
 
